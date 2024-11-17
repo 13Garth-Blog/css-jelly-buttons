@@ -1,0 +1,231 @@
+/*
+ * Jelly Button Stylesheet
+ * Author: 13Garth
+ */
+
+:root {
+  /* Jelly Button Variables */
+
+  /* Size Variables */
+  --jelly-button-padding-small: 1rem 2rem;
+  --jelly-button-border-radius-small: 1.5rem;
+  --jelly-button-font-size-small: 1rem;
+  --jelly-button-line-height-small: 1.25rem;
+
+  --jelly-button-padding-normal: 1.75rem 4rem;
+  --jelly-button-border-radius-normal: 2.5rem;
+  --jelly-button-font-size-normal: 1.5rem;
+  --jelly-button-line-height-normal: 2rem;
+
+  --jelly-button-padding-large: 2.5rem 7.5rem; /* Current size */
+  --jelly-button-border-radius-large: 3.75rem;
+  --jelly-button-font-size-large: 2rem;
+  --jelly-button-line-height-large: 2.5rem;
+
+  --jelly-button-font-weight: 600;
+
+  /* Box Shadow and Highlight */
+  --jelly-button-box-shadow: 0 1rem 1.25rem 0 rgba(22, 75, 195, 0.5),
+    0 -0.25rem 1.5rem rgba(110, 15, 155, 1),
+    0 0.75rem 0.5rem rgba(255, 255, 255, 0.4),
+    0 0.25rem 0.5rem 0 rgba(180, 70, 207, 1);
+
+  --jelly-button-highlight-color: #ffffff;
+  --jelly-button-highlight-opacity: 0.7;
+
+  /* Text */
+  --jelly-text-color: #ffffff;
+  --jelly-drop-shadow-color: hsla(290, 100%, 20%, 1);
+
+  /* Variations */
+  --jelly-primary-bg-start: #0042d9;
+  --jelly-primary-bg-end: #0093ff;
+
+  --jelly-secondary-bg-start: #6c757d;
+  --jelly-secondary-bg-end: #545b62;
+
+  --jelly-success-bg-start: #28a745;
+  --jelly-success-bg-end: #1e7e34;
+
+  --jelly-danger-bg-start: #dc3545;
+  --jelly-danger-bg-end: #bd2130;
+
+  --jelly-warning-bg-start: #ffc107;
+  --jelly-warning-bg-end: #e0a800;
+
+  --jelly-info-bg-start: #17a2b8;
+  --jelly-info-bg-end: #117a8b;
+
+  --jelly-light-bg-start: #f8f9fa;
+  --jelly-light-bg-end: #dae0e5;
+
+  --jelly-dark-bg-start: #343a40;
+  --jelly-dark-bg-end: #1d2124;
+}
+
+/* Container for Buttons */
+.jelly-container {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Base Jelly Button Styles */
+.jb-btn {
+  cursor: pointer;
+  position: relative;
+  border: 1px solid var(--jelly-bg-start, #000);
+  background-image: linear-gradient(
+    -180deg,
+    var(--jelly-bg-start, #000) 0%,
+    var(--jelly-bg-end, #000) 100%
+  );
+  box-shadow: var(--jelly-button-box-shadow);
+  color: var(--jelly-text-color);
+  text-shadow: 0 2px 2px var(--jelly-drop-shadow-color);
+  transition: all 0.3s ease;
+  font-weight: var(--jelly-button-font-weight);
+  overflow: hidden;
+  text-align: center;
+}
+
+.jb-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Sizes */
+.jb-s {
+  padding: var(--jelly-button-padding-small);
+  border-radius: var(--jelly-button-border-radius-small);
+  font-size: var(--jelly-button-font-size-small);
+  line-height: var(--jelly-button-line-height-small);
+}
+
+.jb-n {
+  padding: var(--jelly-button-padding-normal);
+  border-radius: var(--jelly-button-border-radius-normal);
+  font-size: var(--jelly-button-font-size-normal);
+  line-height: var(--jelly-button-line-height-normal);
+}
+
+.jb-l {
+  padding: var(--jelly-button-padding-large);
+  border-radius: var(--jelly-button-border-radius-large);
+  font-size: var(--jelly-button-font-size-large);
+  line-height: var(--jelly-button-line-height-large);
+}
+
+/* Highlights */
+.jb-btn::before,
+.jb-btn::after {
+  content: '';
+  display: block;
+  height: 0.25rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--jelly-button-highlight-color);
+  border-radius: 100%;
+}
+
+.jb-btn::before {
+  top: 0.5rem;
+  opacity: var(--jelly-button-highlight-opacity);
+  background-image: linear-gradient(
+    -270deg,
+    rgba(255, 255, 255, 0) 0%,
+    var(--jelly-button-highlight-color) 20%,
+    var(--jelly-button-highlight-color) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.jb-btn::after {
+  bottom: 0.75rem;
+  filter: blur(1px);
+  opacity: 0.05;
+  background-image: linear-gradient(
+    -270deg,
+    rgba(255, 255, 255, 0) 0%,
+    var(--jelly-button-highlight-color) 20%,
+    var(--jelly-button-highlight-color) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Adjust highlight width based on size */
+.jb-s::before,
+.jb-s::after {
+  width: calc(100% - 4rem);
+}
+
+.jb-n::before,
+.jb-n::after {
+  width: calc(100% - 6rem);
+}
+
+.jb-l::before,
+.jb-l::after {
+  width: calc(100% - 9rem);
+}
+
+/* Variations */
+.jb-primary {
+  --jelly-bg-start: var(--jelly-primary-bg-start);
+  --jelly-bg-end: var(--jelly-primary-bg-end);
+}
+
+.jb-secondary {
+  --jelly-bg-start: var(--jelly-secondary-bg-start);
+  --jelly-bg-end: var(--jelly-secondary-bg-end);
+}
+
+.jb-success {
+  --jelly-bg-start: var(--jelly-success-bg-start);
+  --jelly-bg-end: var(--jelly-success-bg-end);
+}
+
+.jb-danger {
+  --jelly-bg-start: var(--jelly-danger-bg-start);
+  --jelly-bg-end: var(--jelly-danger-bg-end);
+}
+
+.jb-warning {
+  --jelly-bg-start: var(--jelly-warning-bg-start);
+  --jelly-bg-end: var(--jelly-warning-bg-end);
+}
+
+.jb-info {
+  --jelly-bg-start: var(--jelly-info-bg-start);
+  --jelly-bg-end: var(--jelly-info-bg-end);
+}
+
+.jb-light {
+  --jelly-bg-start: var(--jelly-light-bg-start);
+  --jelly-bg-end: var(--jelly-light-bg-end);
+  --jelly-text-color: #000;
+  --jelly-drop-shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+.jb-dark {
+  --jelly-bg-start: var(--jelly-dark-bg-start);
+  --jelly-bg-end: var(--jelly-dark-bg-end);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .jb-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  .jb-btn::before,
+  .jb-btn::after {
+    width: calc(100% - 4rem);
+  }
+}
