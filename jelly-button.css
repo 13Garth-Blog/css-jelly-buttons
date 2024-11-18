@@ -1,233 +1,231 @@
 /*
- * Jelly Button Stylesheet
+ * Enhanced Jelly Button Stylesheet
+ * Works with Bootstrap and Links
  * Author: 13Garth
  */
 
-:root {
-  /* Size Variables */
+ :root {
+    /* Scaled Down Size Variables */
 
-  /* Small Size */
-  --jb-padding-s: 0.75em 1.5em;
-  --jb-radius-s: 1.5rem;
-  --jb-font-size-s: 1.125rem;
-  --jb-line-height-s: 1.5rem;
+    /* Small Size */
+    --jb-padding-s: 0.5em 1em;
+    --jb-radius-s: 1rem;
+    --jb-font-size-s: 0.875rem;
+    --jb-line-height-s: 1.25rem;
 
-  /* Normal Size */
-  --jb-padding-n: 1em 2em;
-  --jb-radius-n: 2rem;
-  --jb-font-size-n: 1.5rem;
-  --jb-line-height-n: 2rem;
+    /* Normal Size */
+    --jb-padding-n: 0.75em 1.5em;
+    --jb-radius-n: 1.5rem;
+    --jb-font-size-n: 1rem;
+    --jb-line-height-n: 1.5rem;
 
-  /* Large Size */
-  --jb-padding-l: 1.25em 2.5em;
-  --jb-radius-l: 2.5rem;
-  --jb-font-size-l: 1.875rem;
-  --jb-line-height-l: 2.25rem;
+    /* Large Size */
+    --jb-padding-l: 1em 2em;
+    --jb-radius-l: 2rem;
+    --jb-font-size-l: 1.25rem;
+    --jb-line-height-l: 1.75rem;
 
-  --jb-font-weight: 700;
+    --jb-font-weight: 700;
 
-  /* Box Shadow */
-  --jb-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    /* Box Shadow */
+    --jb-box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.3);
 
-  /* Text */
-  --jb-text-color: #ffffff;
-  --jb-drop-shadow-color: rgba(0, 0, 0, 0.5);
+    /* Text */
+    --jb-text-color: #ffffff;
+    --jb-drop-shadow-color: rgba(0, 0, 0, 0.5);
+
+    /* Variations */
+    --jb-primary-bg-start: #1e90ff;
+    --jb-primary-bg-end: #104e8b;
+
+    --jb-secondary-bg-start: #6a5acd;
+    --jb-secondary-bg-end: #483d8b;
+
+    --jb-success-bg-start: #32cd32;
+    --jb-success-bg-end: #228b22;
+
+    --jb-danger-bg-start: #ff4040;
+    --jb-danger-bg-end: #b22222;
+
+    --jb-warning-bg-start: #ffd700;
+    --jb-warning-bg-end: #daa520;
+
+    --jb-info-bg-start: #ff7f50;
+    --jb-info-bg-end: #ff4500;
+
+    --jb-light-bg-start: #f0e68c;
+    --jb-light-bg-end: #eee8aa;
+    --jb-light-text-color: #000;
+
+    --jb-dark-bg-start: #2f4f4f;
+    --jb-dark-bg-end: #000;
+  }
+
+  /* Base Jelly Button Styles */
+  .jb-btn,
+  .btn,
+  .jb-link,
+  a.jb-btn {
+    cursor: pointer;
+    position: relative;
+    display: inline-block; /* Ensure links behave like buttons */
+    border: none;
+    border-radius: var(--jb-radius, 1.5rem);
+    padding: var(--jb-padding, 0.75em 1.5em);
+    font-size: var(--jb-font-size, 1rem);
+    line-height: var(--jb-line-height, 1.5rem);
+    font-weight: var(--jb-font-weight);
+    color: var(--jb-text-color, #fff);
+    background: linear-gradient(
+      -180deg,
+      var(--jb-bg-start, #000) 0%,
+      var(--jb-bg-end, #000) 100%
+    );
+    box-shadow: var(--jb-box-shadow);
+    text-decoration: none; /* Remove underline from links */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    text-align: center;
+    will-change: transform;
+    touch-action: manipulation;
+    user-select: none;
+  }
+
+  .jb-btn:hover,
+  .btn:hover,
+  .jb-link:hover,
+  a.jb-btn:hover {
+    animation: jelly 0.5s ease-in-out;
+  }
+
+  .jb-btn:active,
+  .btn:active,
+  .jb-link:active,
+  a.jb-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
+  }
+
+  .jb-btn:focus,
+  .btn:focus,
+  .jb-link:focus,
+  a.jb-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+  }
+
+  /* Sizes */
+  .jb-s,
+  .btn-sm,
+  .jb-link-sm,
+  a.jb-s {
+    --jb-padding: var(--jb-padding-s);
+    --jb-radius: var(--jb-radius-s);
+    --jb-font-size: var(--jb-font-size-s);
+    --jb-line-height: var(--jb-line-height-s);
+  }
+
+  .jb-n,
+  .btn-md,
+  .jb-link-md,
+  a.jb-n {
+    --jb-padding: var(--jb-padding-n);
+    --jb-radius: var(--jb-radius-n);
+    --jb-font-size: var(--jb-font-size-n);
+    --jb-line-height: var(--jb-line-height-n);
+  }
+
+  .jb-l,
+  .btn-lg,
+  .jb-link-lg,
+  a.jb-l {
+    --jb-padding: var(--jb-padding-l);
+    --jb-radius: var(--jb-radius-l);
+    --jb-font-size: var(--jb-font-size-l);
+    --jb-line-height: var(--jb-line-height-l);
+  }
 
   /* Variations */
-  --jb-primary-bg-start: #1e90ff; /* DodgerBlue */
-  --jb-primary-bg-end: #104e8b;   /* DeepSkyBlue4 */
-
-  --jb-secondary-bg-start: #6a5acd; /* SlateBlue */
-  --jb-secondary-bg-end: #483d8b;   /* DarkSlateBlue */
-
-  --jb-success-bg-start: #32cd32; /* LimeGreen */
-  --jb-success-bg-end: #228b22;   /* ForestGreen */
-
-  --jb-danger-bg-start: #ff4040; /* CoralRed */
-  --jb-danger-bg-end: #b22222;   /* FireBrick */
-
-  --jb-warning-bg-start: #ffd700; /* Gold */
-  --jb-warning-bg-end: #daa520;   /* GoldenRod */
-
-  --jb-info-bg-start: #ff7f50; /* Coral */
-  --jb-info-bg-end: #ff4500;   /* OrangeRed */
-
-  --jb-light-bg-start: #f0e68c; /* Khaki */
-  --jb-light-bg-end: #eee8aa;   /* PaleGoldenRod */
-  --jb-light-text-color: #000;
-  --jb-light-drop-shadow-color: rgba(0, 0, 0, 0.5);
-
-  --jb-dark-bg-start: #2f4f4f; /* DarkSlateGray */
-  --jb-dark-bg-end: #000;      /* Black */
-}
-
-.jelly-container {
-  padding: 0;
-  margin: 0 auto;
-  max-width: 1200px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Base Jelly Button Styles */
-.jb-btn {
-  cursor: pointer;
-  position: relative;
-  border: none;
-  border-radius: var(--jb-radius, 2rem);
-  padding: var(--jb-padding, 1em 2em);
-  font-size: var(--jb-font-size, 1.5rem);
-  line-height: var(--jb-line-height, 2rem);
-  font-weight: var(--jb-font-weight);
-  color: var(--jb-text-color, #fff);
-  background: linear-gradient(
-    -180deg,
-    var(--jb-bg-start, #000) 0%,
-    var(--jb-bg-end, #000) 100%
-  );
-  box-shadow: var(--jb-box-shadow);
-  text-shadow: 0 2px 2px var(--jb-drop-shadow-color, rgba(0, 0, 0, 0.5));
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden;
-  text-align: center;
-  will-change: transform;
-  touch-action: manipulation;
-  user-select: none;
-}
-
-.jb-btn::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 60%);
-  opacity: 0.4;
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.jb-btn:hover::after {
-  animation: shine 1.5s linear;
-}
-
-.jb-btn:hover {
-  animation: jelly 0.5s ease-in-out;
-}
-
-.jb-btn:active {
-  transform: scale(0.95);
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.4);
-}
-
-.jb-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
-}
-
-/* Jelly Animation */
-@keyframes jelly {
-  0% {
-    transform: scale(1, 1);
+  .jb-primary,
+  .btn-primary,
+  .jb-link-primary,
+  a.jb-primary {
+    --jb-bg-start: var(--jb-primary-bg-start);
+    --jb-bg-end: var(--jb-primary-bg-end);
   }
-  25% {
-    transform: scale(0.9, 1.1);
+
+  .jb-secondary,
+  .btn-secondary,
+  .jb-link-secondary,
+  a.jb-secondary {
+    --jb-bg-start: var(--jb-secondary-bg-start);
+    --jb-bg-end: var(--jb-secondary-bg-end);
   }
-  50% {
-    transform: scale(1.1, 0.9);
+
+  .jb-success,
+  .btn-success,
+  .jb-link-success,
+  a.jb-success {
+    --jb-bg-start: var(--jb-success-bg-start);
+    --jb-bg-end: var(--jb-success-bg-end);
   }
-  75% {
-    transform: scale(0.95, 1.05);
+
+  .jb-danger,
+  .btn-danger,
+  .jb-link-danger,
+  a.jb-danger {
+    --jb-bg-start: var(--jb-danger-bg-start);
+    --jb-bg-end: var(--jb-danger-bg-end);
   }
-  100% {
-    transform: scale(1, 1);
+
+  .jb-warning,
+  .btn-warning,
+  .jb-link-warning,
+  a.jb-warning {
+    --jb-bg-start: var(--jb-warning-bg-start);
+    --jb-bg-end: var(--jb-warning-bg-end);
   }
-}
 
-/* Shine Animation */
-@keyframes shine {
-  0% {
-    transform: translateX(-100%);
+  .jb-info,
+  .btn-info,
+  .jb-link-info,
+  a.jb-info {
+    --jb-bg-start: var(--jb-info-bg-start);
+    --jb-bg-end: var(--jb-info-bg-end);
   }
-  100% {
-    transform: translateX(100%);
+
+  .jb-light,
+  .btn-light,
+  .jb-link-light,
+  a.jb-light {
+    --jb-bg-start: var(--jb-light-bg-start);
+    --jb-bg-end: var(--jb-light-bg-end);
+    --jb-text-color: var(--jb-light-text-color);
   }
-}
 
-/* Sizes */
-.jb-s {
-  --jb-padding: var(--jb-padding-s);
-  --jb-radius: var(--jb-radius-s);
-  --jb-font-size: var(--jb-font-size-s);
-  --jb-line-height: var(--jb-line-height-s);
-}
-
-.jb-n {
-  --jb-padding: var(--jb-padding-n);
-  --jb-radius: var(--jb-radius-n);
-  --jb-font-size: var(--jb-font-size-n);
-  --jb-line-height: var(--jb-line-height-n);
-}
-
-.jb-l {
-  --jb-padding: var(--jb-padding-l);
-  --jb-radius: var(--jb-radius-l);
-  --jb-font-size: var(--jb-font-size-l);
-  --jb-line-height: var(--jb-line-height-l);
-}
-
-/* Variations */
-.jb-primary {
-  --jb-bg-start: var(--jb-primary-bg-start);
-  --jb-bg-end: var(--jb-primary-bg-end);
-}
-
-.jb-secondary {
-  --jb-bg-start: var(--jb-secondary-bg-start);
-  --jb-bg-end: var(--jb-secondary-bg-end);
-}
-
-.jb-success {
-  --jb-bg-start: var(--jb-success-bg-start);
-  --jb-bg-end: var(--jb-success-bg-end);
-}
-
-.jb-danger {
-  --jb-bg-start: var(--jb-danger-bg-start);
-  --jb-bg-end: var(--jb-danger-bg-end);
-}
-
-.jb-warning {
-  --jb-bg-start: var(--jb-warning-bg-start);
-  --jb-bg-end: var(--jb-warning-bg-end);
-}
-
-.jb-info {
-  --jb-bg-start: var(--jb-info-bg-start);
-  --jb-bg-end: var(--jb-info-bg-end);
-}
-
-.jb-light {
-  --jb-bg-start: var(--jb-light-bg-start);
-  --jb-bg-end: var(--jb-light-bg-end);
-  --jb-text-color: var(--jb-light-text-color);
-  --jb-drop-shadow-color: var(--jb-light-drop-shadow-color);
-}
-
-.jb-dark {
-  --jb-bg-start: var(--jb-dark-bg-start);
-  --jb-bg-end: var(--jb-dark-bg-end);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 480px) {
-  .jb-btn {
-    padding: 0.75em 1.5em;
-    font-size: 1rem;
-    line-height: 1.25rem;
+  .jb-dark,
+  .btn-dark,
+  .jb-link-dark,
+  a.jb-dark {
+    --jb-bg-start: var(--jb-dark-bg-start);
+    --jb-bg-end: var(--jb-dark-bg-end);
   }
-}
+
+  /* Jelly Animation */
+  @keyframes jelly {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(0.9, 1.1);
+    }
+    50% {
+      transform: scale(1.1, 0.9);
+    }
+    75% {
+      transform: scale(0.95, 1.05);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
