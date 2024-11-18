@@ -9,6 +9,8 @@
 A modern, gamified, and glossy button library built with CSS. Jelly Buttons are designed to be vibrant, animated, and responsive, with built-in theming for primary, secondary, success, danger, warning, info, light, and dark variations. Perfect for mobile-first designs!
 
 ---
+![Jelly Buttons Preview](jelly-buttons.png)
+---
 
 ## Features
 
